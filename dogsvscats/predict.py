@@ -5,6 +5,11 @@ import numpy as np
 import onnxruntime
 
 CLASSES = ["cat", "dog"]
+MODEL_URL = "https://github.com/albertoburgosplaza/dogs-vs-cats-inference/releases/download/0.1.0/mobilenet_v3_small.onnx"
+
+r = requests.get(MODEL_URL, allow_redirects=True)
+open("mobilenet_v3_small.onnx", "wb").write(r.content)
+ort_session = onnxruntime.InferenceSession("mobilenet_v3_small.onnx")
 
 
 def predict(image_path: str):
@@ -17,9 +22,6 @@ def predict(image_path: str):
     image = np.transpose(image, (2, 0, 1))
     image = np.expand_dims(image, axis=0)  # Needs 1 x 3 x H x W
 
-    ort_session = onnxruntime.InferenceSession(
-        "/home/alberto/workspace/dogs-vs-cats-inference/data/mobilenet_v3_small.onnx"
-    )
     ort_inputs = {ort_session.get_inputs()[0].name: image}
     ort_outs = ort_session.run(None, ort_inputs)
 

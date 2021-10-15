@@ -4,3 +4,4 @@ dist
 *.egg*
 venv
 nbs
+__pycache__
