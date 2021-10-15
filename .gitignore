@@ -1,0 +1,6 @@
+data
+.vscode
+dist
+*.egg*
+venv
+nbs
