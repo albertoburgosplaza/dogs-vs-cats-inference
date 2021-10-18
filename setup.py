@@ -6,13 +6,13 @@ from setuptools import find_namespace_packages, setup
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-required_packages = ["onnxruntime", "Pillow"]
+required_packages = ["onnxruntime", "Pillow", "requests"]
 
 dev_packages = ["black", "flake8", "isort", "jupyterlab", "pre-commit", "mypy"]
 
 setup(
     name="dogsvscats",
-    version="0.1.0",
+    version="0.2.1",
     license="Apache",
     description="Solution for Kaggle competition https://www.kaggle.com/c/dogs-vs-cats",
     long_description=long_description,
