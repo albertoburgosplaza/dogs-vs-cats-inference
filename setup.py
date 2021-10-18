@@ -12,7 +12,7 @@ dev_packages = ["black", "flake8", "isort", "jupyterlab", "pre-commit", "mypy"]
 
 setup(
     name="dogsvscats",
-    version="0.2.1",
+    version="0.2.2",
     license="Apache",
     description="Solution for Kaggle competition https://www.kaggle.com/c/dogs-vs-cats",
     long_description=long_description,
