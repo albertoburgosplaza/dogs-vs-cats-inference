@@ -46,3 +46,9 @@ build: clean
 testpypi:
 	pip install --upgrade twine
 	python -m twine upload --repository testpypi dist/*
+
+# Uploading to pypi
+.PHONY: pypi
+pypi:
+	pip install --upgrade twine
+	python -m twine upload dist/*
