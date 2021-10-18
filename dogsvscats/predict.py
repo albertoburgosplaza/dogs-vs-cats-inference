@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Union
 import requests
 from PIL import Image
@@ -12,7 +13,15 @@ open("mobilenet_v3_small.onnx", "wb").write(r.content)
 ort_session = onnxruntime.InferenceSession("mobilenet_v3_small.onnx")
 
 
-def predict(image_path: str):
+def predict(image_path: Union[str, Path]) -> str:
+    """Predicts if an image is a dog or cat.
+
+    Args:
+        image_path (Union[str, Path]): an image path
+
+    Returns:
+        str: cat or dog
+    """
     image = Image.open(image_path)
     image = image.resize((224, 224), resample=Image.BILINEAR)  # W, H
     image = np.array(image, dtype=np.float32)
